@@ -1,6 +1,6 @@
 ~ function(){
     const OWNER = "xbuilf";
-    const REPO  = "tupian";
+    const REPO  = "lihaoyuphoto";
     const BRANCH = "main";
     // 上一级，仓库根目录下的 photo
     const ROOT_DIR = "photo";
