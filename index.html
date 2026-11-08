@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+<title>高中生活</title>
+<meta name="keywords" content="高中生活" />
+<meta name="description" content="高中快乐（单指滑动旋转角度，双指放大或缩小视图，三指滑动改变轴心）、支持鼠标左键拖动旋转角度、滚轮放大或缩小、按住鼠标右键拖动改变轴心、单击小图预览大图等功能！" />
+<link rel="shortcut icon" href="images/ico.gif" type="image/x-icon" />
+<link rel="stylesheet" href="css/bg.css" media="screen" type="text/css" />
+<link rel="stylesheet" href="css/3d.css" media="screen" type="text/css" />
+<link rel="stylesheet" href="css/lrtk.css" media="screen" type="text/css" />
+<style>
+/*音乐按钮简单样式*/
+#musicBtn{
+    position:fixed;
+    z-index:99999;
+    bottom:20px;
+    left:20px;
+    padding:6px 12px;
+    font-size:14px;
+    cursor:pointer;
+}
+</style>
+</head>
+<body>
+
+<div id="mediaDiv">
+    <div class="on">
+        <!-- 去掉autoplay，修复中文引号bug -->
+        <audio id="bgMusic" src="https://raw.giteeusercontent.com/lihaoyu061/photo/raw/master/music.mp3" loop="loop" type="audio/mpeg">
+        
+    </div>
+</div>
+<!-- 音乐手动播放按钮 -->
+<button id="musicBtn">🎵 播放音乐</button>
+
+<div id="container"></div>
+<div id="info"><b>高中快乐</b><br /><span style="color:#555;">试试用鼠标旋转角度、滚轮放大或缩小</span></div>
+<div id="menu">
+            <button id="table"></button> 
+<button id="sphere" class="hover">球体</button>
+<button id="helix">螺旋</button>
+<button id="grid">多面</button>
+</div>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/three.min.js"></script>
+<script type="text/javascript" src="js/tween.min.js"></script>
+<script type="text/javascript" src="js/TrackballControls.min.js"></script>
+<script type="text/javascript" src="js/CSS3DRenderer.min.js"></script>
+
+         <!-- <script type="text/javascript" src="js/jquery.imgbox.js"></script>
+-->
+
+<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript" src="js/media.js"></script>
+
+<script>
+//背景音乐控制逻辑
+const audio = document.getElementById('bgMusic');
+const btn = document.getElementById('musicBtn');
+let isPlay = false;
+
+btn.onclick = function(){
+    if(!isPlay){
+        audio.play();
+        btn.innerText = "🔇 暂停音乐";
+        isPlay = true;
+    }else{
+        audio.pause();
+        btn.innerText = "🎵 播放音乐";
+        isPlay = false;
+    }
+}
+</script>
+</body>
+</html>
